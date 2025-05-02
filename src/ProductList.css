@@ -1,3 +1,11 @@
+:root {
+  --lightCol: #f2f2f2;
+  --primCol: #f2b33d;
+  --secCol: #f29a2e;
+  --tertCol: #f25922;
+  --accentCol: #401a1a;
+}
+
 /* Reset some default styles */
 body,
 h1,
@@ -9,13 +17,16 @@ ul {
 /* Set a background color */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
+  background-color: var(--lightCol);
 }
 
 /* Navbar */
 .navbar {
-  background-color: #4caf50;
-  color: #fff !important;
+  /* background-color: #4caf50; */
+  /* background-color: #fccd77; */
+  background-color: var(--accentCol);
+  color: var(--lightCol) !important;
   padding: 15px;
   display: flex;
   justify-content: space-between;
@@ -23,21 +34,27 @@ body {
   font-size: 20px;
 }
 
-.navbar .ul {
+/* .navbar .ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 1100px;
-}
+} */
 
-.navbar li {
+/* .navbar li {
   margin-right: 30px;
-}
+} */
 
-.navbar .ul div a {
+/* .navbar .ul div a {
   color: white;
+  color: var(--lightCol);
   font-size: 30px;
   text-decoration: none;
+} */
+
+.product-grid-link {
+  justify-self: center;
+  flex: 2;
 }
 
 /* Product Grid */
@@ -47,14 +64,15 @@ body {
   width: 100vw;
   align-items: center;
   justify-content: center;
+  background-color: var(--lightCol);
 }
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 12px;
   /* background-color: pink; */
   /* justify-content: space-between; */
-  padding: 20px;
+  /* padding: 20px; */
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -62,67 +80,71 @@ body {
 
 /* Product Card */
 .product-card {
-  flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
-  max-width: calc(
-    26.33% - 20px
-  ); /* Adjust max-width for 3 cards per row with 20px gap */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 400px;
   margin-bottom: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: var(--lightCol);
   border-radius: 5px;
-  text-align: center;
+  text-align: left;
   position: relative;
-
-  gap: 20px;
+  height: 400px;
+  width: 270px;
+  color: var(--accentCol);
+  transition: transform 0.3s ease-in-out;
+}
+.product-category {
+  font-size: 2.2rem;
+  margin: 50px 0;
+  text-align: center;
+  color: var(--accentCol);
+  justify-self: center;
 }
 
 /* Pseudo-classes - Hover effect on product button */
 .product-card:hover {
   transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
   z-index: 1;
 }
 
 .product-title {
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  /* margin-bottom: 10px; */
+  font-size: 18pt;
+}
+
+.product-description {
+  font-size: 10pt;
+  margin-bottom: 5px;
 }
 
 .product-price {
-  color: #e74c3c;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  /* color: #e74c3c; */
+  color: var(--accentCol);
+  font-size: 14pt;
+  margin-bottom: 5px;
 }
 
 .product-image {
   max-width: 100%;
-  height: 200px; /* Adjust height for better consistency */
-}
-
-.product-button {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  margin-top: 10px;
-}
-
-.product-button:hover {
-  background-color: #c0392b;
+  /* height: 200px; Adjust height for better consistency */
+  height: 60%;
+  object-fit: cover;
 }
 
 /* Pseudo-elements - Sale badge */
 .product-card::before {
   content: "SALE";
-  background-color: #e74c3c;
-  color: #fff;
+  /* background-color: #e74c3c; */
+  background-color: var(--tertCol);
+  color: var(--lightCol);
   position: absolute;
   top: 0;
   right: 0;
-  padding: 5px 10px;
+  padding: 5px 20px;
+  font-size: 14pt;
   border-radius: 0 0 0 5px;
 }
 .tag_home_link {
@@ -132,7 +154,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-left: 50px;
-  color: white;
+  color: var(--lightCol);
   text-decoration: none;
   font-size: 20px;
 }
@@ -141,6 +163,7 @@ body {
 }
 .tag a {
   text-decoration: none;
+  color: var(--lightCol);
 }
 .tag {
   width: 400px;
@@ -150,29 +173,62 @@ body {
 }
 
 .tag img {
-  height: 70px;
-  width: 70px;
+  height: 120px;
+  width: 120px;
   border-radius: 70%;
 }
 
-.luxury {
+/* .luxury {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 650px;
   font-size: 19px;
-}
-.cart {
+  color: var(--lightCol);
+} */
+/* .cart {
   color: white;
   display: flex;
+} */
+
+.cart-div,
+.cart-div a {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  overflow: visible;
 }
-.cart_quantity_count {
+
+.product-grid-link {
+  flex-grow: 2;
+  flex-basis: 1;
+}
+
+/* .cart_quantity_count {
   margin-top: 16px;
-  /* background-color: red; */
+  background-color: red;
   margin-left: 27px;
   position: absolute;
   font-size: 29px;
+} */
+
+.cart_quantity_count {
+  background-color: var(--tertCol);
+  position: absolute;
+  top: -12.5%;
+  left: -25%;
+  font-size: 2.3rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 1.4;
 }
+
 .plantname_heading {
   display: flex;
   align-items: center;
@@ -196,24 +252,27 @@ body {
     ); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
   }
 }
+
 /* ProductList.css */
 
 .product-button {
-  background-color: #4caf50; /* Green */
+  /* background-color: #4caf50; Green */
+  background-color: var(--secCol);
   border: none;
   color: white;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14pt;
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
 }
 
 .product-button:hover {
-  background-color: #45a049;
+  /* background-color: #45a049; */
+  background-color: var(--primCol);
 }
 
 .product-button.added-to-cart {
@@ -239,6 +298,25 @@ body {
   .navbar {
     flex-direction: column; /* Change flex direction to stack items vertically */
     align-items: center; /* Align items to the center of the container */
+  }
+
+  .cart-div,
+  .cart-div a {
+    align-self: flex-end;
+    height: 70px;
+    width: 70px;
+  }
+
+  .cart_quantity_count {
+    top: -12.5%;
+    left: -25%;
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .products-link-div {
+    align-self: flex-start;
   }
 
   .tag {
